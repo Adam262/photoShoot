@@ -1,3 +1,12 @@
 $(document).ready(function(){
-  $('h1').html('Hello World')
-})
+    $('#fullpage').fullpage(
+      {
+        resize: false,
+        scrollingSpeed: 2000,
+        easing: 'easeOutSine',
+        controlArrows: false,
+        afterLoad: setInterval(function(){ $.fn.fullpage.moveSlideRight() }, 2000)
+      }
+    );
+  }
+);
