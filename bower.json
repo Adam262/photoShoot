@@ -1,0 +1,16 @@
+{
+  "name": "projects",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.1",
+    "jquery-ui": "~1.11.4",
+    "dropit": "~1.1.1",
+    "fullpage.js": "~2.7.4",
+    "normalize": "~1.0.4"
+  },
+  "devDependencies": {
+    "chai": "~3.4.1",
+    "mocha": "~2.3.3"
+  }
+}
