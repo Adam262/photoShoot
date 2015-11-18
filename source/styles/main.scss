@@ -1,0 +1,103 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,500);
+
+body {
+  margin: 0;
+  overflow: hidden;
+}
+
+#container {
+  background-color: black;
+  height: 100vh;
+  width: 100vw;
+}
+
+.navbar {
+  font: 1.1em 'Raleway'; 
+  position: fixed;
+  top: 1em;
+  right: 5em;
+  width: 30%;
+  z-index: 100;
+}
+
+li {
+  display: inline-block;
+  list-style: none;
+  padding: 0 5%;
+}
+
+.submenu > li {
+  font-size: 0.8em !important;
+  display: block;
+  padding: 1.5%;
+}
+
+.submenu > li:hover {
+  background-color: black;
+  color: white;
+}
+
+.submenu > li:hover a {
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  padding: 5%;
+}
+
+a:hover {
+  font-weight: bold;
+}
+
+img {
+  height: auto;
+  max-width: 100vw;
+}
+
+.logo-container {
+  text-align: center;
+  position: fixed;
+  width: 100vw;
+  bottom: 10em;
+  left: 10em;
+  z-index: 100;
+}
+
+.logo {
+  font: 3em 'Raleway'; 
+  width: 20em;
+}
+
+.logo-style {
+  color: white;
+  border: 1px solid white;
+  padding: 1%;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.logo-style:hover {
+  color: black;
+  border: 1px solid black;
+  padding: 1%;
+  background-color: white;
+  opacity: 0.5;
+}
+
+.logo-style:hover a {
+  color: black;
+}
+
+.fp-controlArrow {
+  display: none;
+}
+
+@media only screen and  (max-width: 568px) {
+  .logo {
+    width: 18em;
+    padding: 1% 1.5%;
+
+  }
+}

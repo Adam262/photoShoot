@@ -12,18 +12,18 @@ PhotoShoot.Photos = (function() {
   }
 
   photos = [
-    new Photo('./assets/nyh-site-coverpage-5.jpg', 'Portraits'),
-    new Photo('./assets/nyh-site-coverpage-6.jpg', 'Headshots'),
-    new Photo('./assets/nyh-site-coverpage-7.jpg', 'Kids'),
-    new Photo('./assets/nyh-site-coverpage-8.jpg', 'Portraits'),
-    new Photo('./assets/nyh-site-coverpage-9.jpg', 'Kids'),
-    new Photo('./assets/nyh-site-coverpage-12.jpg', 'Headshots'),
-    new Photo('./assets/nyh-site-coverpage-5.jpg', 'Portraits'),
-    new Photo('./assets/nyh-site-coverpage-6.jpg', 'Headshots'),
-    new Photo('./assets/nyh-site-coverpage-7.jpg', 'Kids'),
-    new Photo('./assets/nyh-site-coverpage-8.jpg', 'Portraits'),
-    new Photo('./assets/nyh-site-coverpage-9.jpg', 'Kids'),
-    new Photo('./assets/nyh-site-coverpage-12.jpg', 'Headshots')
+    new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits'),
+    new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots'),
+    new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'Kids'),
+    new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'Portraits'),
+    new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'Kids'),
+    new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'Headshots'),
+    new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits'),
+    new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots'),
+    new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'Kids'),
+    new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'Portraits'),
+    new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'Kids'),
+    new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'Headshots')
   ]
 
   return photos;
@@ -38,7 +38,6 @@ PhotoShoot.Events = (function() {
   function init() {
     // globalPreventDefault();
     appendSlides(PhotoShoot.Photos);
-    console.log($section.length)
     if ($section.length > 0) {
       initFullpage();
     }
@@ -77,7 +76,6 @@ PhotoShoot.Events = (function() {
   }
 
   function initDropit() {
-    console.log($menu)
     $menu.dropit({
       action: 'mouseenter',
       beforeShow: beforeDropitShow,

@@ -1,5 +1,4 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,500);
-
 body {
   margin: 0;
   overflow: hidden;
@@ -12,7 +11,7 @@ body {
 }
 
 .navbar {
-  font: 1.1em 'Raleway'; 
+  font: 1.1em 'Raleway';
   position: fixed;
   top: 1em;
   right: 5em;
@@ -66,7 +65,7 @@ img {
 }
 
 .logo {
-  font: 3em 'Raleway'; 
+  font: 3em 'Raleway';
   width: 20em;
 }
 
@@ -94,12 +93,9 @@ img {
   display: none;
 }
 
-@media only screen and  (max-width: 568px) {
+@media only screen and (max-width: 568px) {
   .logo {
     width: 18em;
     padding: 1% 1.5%;
-
   }
 }
-
-
