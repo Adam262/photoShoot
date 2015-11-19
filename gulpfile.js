@@ -16,7 +16,7 @@ gulp.task('default', function() {
 });
 
 gulp.task('styles', function() {
-  return sass('source/**/*.scss', { style: 'expanded' }).
+  return sass('source/**/main.scss', { style: 'expanded' }).
     on('error', sass.logError).
     pipe(autoprefixer('last 2 version')).
     pipe(gulp.dest('dist')).

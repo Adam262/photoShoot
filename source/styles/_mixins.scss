@@ -1,0 +1,8 @@
+// use as @include transition(color 3s ease)
+
+@mixin transition($options...) {
+  -moz-transition: $options;
+  -webkit-transition: $options;
+  -o-transition: $options;
+  transition: $options;
+}
