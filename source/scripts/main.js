@@ -1,3 +1,5 @@
+'use strict';
+
 var PhotoShoot = PhotoShoot || {};
 
 PhotoShoot.Config = {};
@@ -5,12 +7,14 @@ PhotoShoot.Config = {};
 PhotoShoot.Photos = (function() {
   var photos;
 
-  function Photo(path, category, title) {
-    this.path = path;
-    this.category = category;
-    this.title = title || 'title';
-  }
-
+  class Photo {
+    constructor (path, category, title) {
+      this.path = path;
+      this.category = category;
+      this.title = title || 'title';
+    }
+  };
+ 
   photos = [
     new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits'),
     new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots'),
@@ -45,8 +49,8 @@ PhotoShoot.Events = (function() {
   }
 
   function imageTag(photo) {
-    return '<img src=' + photo.path + ' alt=' + photo.title + 
-      ' data-category=' + photo.category + " class='slide'" + '>';        
+    return `<img src='${photo.path}' alt='${photo.title}'` +  
+      ` data-category='${photo.category}' class='slide' >`;        
   }
 
   function appendSlides(photos) {

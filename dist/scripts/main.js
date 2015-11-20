@@ -1,35 +1,30 @@
+'use strict';
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
 var PhotoShoot = PhotoShoot || {};
 
 PhotoShoot.Config = {};
 
-PhotoShoot.Photos = (function() {
+PhotoShoot.Photos = (function () {
   var photos;
 
-  function Photo(path, category, title) {
+  var Photo = function Photo(path, category, title) {
+    _classCallCheck(this, Photo);
+
     this.path = path;
     this.category = category;
     this.title = title || 'title';
-  }
+  };
 
-  photos = [
-    new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits'),
-    new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots'),
-    new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'Kids'),
-    new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'Portraits'),
-    new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'Kids'),
-    new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'Headshots'),
-    new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits'),
-    new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots'),
-    new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'Kids'),
-    new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'Portraits'),
-    new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'Kids'),
-    new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'Headshots')
-  ]
+  ;
+
+  photos = [new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits'), new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots'), new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'Kids'), new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'Portraits'), new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'Kids'), new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'Headshots'), new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits'), new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots'), new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'Kids'), new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'Portraits'), new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'Kids'), new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'Headshots')];
 
   return photos;
-}());
+})();
 
-PhotoShoot.Events = (function() {
+PhotoShoot.Events = (function () {
   var $section = $('#fullpage > .section'),
       $document = $(document),
       $menu = $('.menu'),
@@ -45,14 +40,13 @@ PhotoShoot.Events = (function() {
   }
 
   function imageTag(photo) {
-    return '<img src=' + photo.path + ' alt=' + photo.title + 
-      ' data-category=' + photo.category + " class='slide'" + '>';        
+    return '<img src=\'' + photo.path + '\' alt=\'' + photo.title + '\'' + (' data-category=\'' + photo.category + '\' class=\'slide\' >');
   }
 
   function appendSlides(photos) {
     var tag;
 
-    photos.forEach(function(photo) {
+    photos.forEach(function (photo) {
       tag = imageTag(photo);
 
       $section.append(tag);
@@ -60,7 +54,7 @@ PhotoShoot.Events = (function() {
   }
 
   function globalPreventDefault() {
-    $document.on('click', 'a', function(event) {
+    $document.on('click', 'a', function (event) {
       event.preventDefault();
     });
   }
@@ -71,7 +65,9 @@ PhotoShoot.Events = (function() {
       scrollingSpeed: 2000,
       easing: 'easeOutSine',
       controlArrows: false,
-      afterLoad: setInterval(function(){ $.fn.fullpage.moveSlideRight() }, 2000)
+      afterLoad: setInterval(function () {
+        $.fn.fullpage.moveSlideRight();
+      }, 2000)
     });
   }
 
@@ -95,7 +91,7 @@ PhotoShoot.Events = (function() {
     });
   }
 
-  return { init: init }; 
-}());
+  return { init: init };
+})();
 
 $(document).ready(PhotoShoot.Events.init);

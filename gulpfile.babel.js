@@ -1,21 +1,24 @@
-var gulp = require('gulp'),
-    livereload = require('gulp-livereload'),
-    rename = require('gulp-rename'),
-    autoprefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify'),
-    concat = require('gulp-concat'),
-    sass = require('gulp-ruby-sass'),
-    minifycss = require('gulp-minify-css'),
-    imagemin = require('gulp-imagemin'),
-    cache = require('gulp-cache');
+'use strict';
 
-gulp.task('default', function() {
+import gulp from 'gulp';
+import livereload from 'gulp-livereload';
+import rename from 'gulp-rename';
+import autoprefixer from 'gulp-autoprefixer';
+import babel from 'gulp-babel';
+import uglify from 'gulp-uglify';
+import concat from 'gulp-concat';
+import sass from 'gulp-ruby-sass';
+import minifycss from 'gulp-minify-css';
+import imagemin from 'gulp-imagemin';
+import cache from 'gulp-cache';
+
+gulp.task('default', () => {
   var tasks = ['styles', 'images', 'scripts', 'watch'];
 
   gulp.start(tasks);
 });
 
-gulp.task('styles', function() {
+gulp.task('styles', () => {
   return sass('source/**/main.scss', { style: 'expanded' }).
     on('error', sass.logError).
     pipe(autoprefixer('last 2 version')).
@@ -25,16 +28,23 @@ gulp.task('styles', function() {
     pipe(gulp.dest('dist'));
 });
 
-gulp.task('scripts', function() {
+gulp.task('scripts', () => {
   return gulp.src('source/scripts/**/*.js').
+    pipe(babel(
+      {
+        presets: ['es2015']
+      }
+    )).
     pipe(concat('main.js')).
     pipe(gulp.dest('dist/scripts')).
-    pipe(rename({suffix: '.min'})).
+    pipe(rename({
+      suffix: '.min'
+    })).
     pipe(uglify()).
     pipe(gulp.dest('dist/scripts'));
 });
 
-gulp.task('images', function(){
+gulp.task('images', () => {
   return gulp.src('source/images/*').
     pipe(cache(
       imagemin(
@@ -48,7 +58,7 @@ gulp.task('images', function(){
     pipe(gulp.dest('dist/images'))
 });
 
-gulp.task('watch', function() {
+gulp.task('watch', () => {
   gulp.watch('source/**/*.scss', ['styles']);
   gulp.watch('source/scripts/**/*.js', ['scripts']);
   gulp.watch('source/images/*', ['images']);
