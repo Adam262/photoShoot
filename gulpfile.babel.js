@@ -1,16 +1,18 @@
 'use strict';
 
 import gulp from 'gulp';
+import source from 'vinyl-source-stream';
 import livereload from 'gulp-livereload';
 import rename from 'gulp-rename';
 import autoprefixer from 'gulp-autoprefixer';
-import babel from 'gulp-babel';
 import uglify from 'gulp-uglify';
 import concat from 'gulp-concat';
 import sass from 'gulp-ruby-sass';
 import minifycss from 'gulp-minify-css';
 import imagemin from 'gulp-imagemin';
 import cache from 'gulp-cache';
+import browserify from 'browserify';
+import babelify from 'babelify';
 
 gulp.task('default', () => {
   var tasks = ['styles', 'images', 'scripts', 'watch'];
@@ -29,19 +31,16 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', () => {
-  return gulp.src('source/scripts/**/*.js').
-    pipe(babel(
-      {
-        presets: ['es2015']
-      }
-    )).
-    pipe(concat('main.js')).
-    pipe(gulp.dest('dist/scripts')).
-    pipe(rename({
-      suffix: '.min'
-    })).
-    pipe(uglify()).
-    pipe(gulp.dest('dist/scripts'));
+  return browserify(
+    { 
+      entries: ['source/scripts/main.js', 'source/scripts/photos.js'], 
+      debug: true 
+    }
+  ).
+  transform(babelify).
+  bundle().
+  pipe(source('bundle.js')).
+  pipe(gulp.dest('dist/scripts/'));
 });
 
 gulp.task('images', () => {
@@ -55,7 +54,7 @@ gulp.task('images', () => {
         }
       )
     )).
-    pipe(gulp.dest('dist/images'))
+    pipe(gulp.dest('dist/images'));
 });
 
 gulp.task('watch', () => {

@@ -1,7 +1,6 @@
 {
   "name": "photoshoot",
   "version": "1.0.0",
-  "description": "",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,24 +9,25 @@
     "type": "git",
     "url": "git+https://github.com/Adam262/photoShoot.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Adam262/photoShoot/issues"
-  },
   "homepage": "https://github.com/Adam262/photoShoot#readme",
+  "babel": {
+    "presets": ["es2015"]
+  },
   "devDependencies": {
     "babel-core": "^6.2.1",
     "babel-preset-es2015": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
-    "gulp-babel": "^6.1.0",
+    "gulp-browserify": "^0.5.1",
     "gulp-cache": "^0.4.0",
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^2.4.0",
     "gulp-livereload": "^3.8.1",
     "gulp-minify-css": "^1.2.1",
     "gulp-ruby-sass": "^2.0.5",
-    "gulp-uglify": "^1.5.1"
+    "gulp-uglify": "^1.5.1",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
