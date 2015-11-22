@@ -33,7 +33,12 @@ gulp.task('styles', () => {
 gulp.task('scripts', () => {
   return browserify(
     { 
-      entries: ['source/scripts/main.js', 'source/scripts/photos.js'], 
+      entries: 
+        [
+          'source/scripts/main.js', 
+          'source/scripts/photoService.js', 
+          'source/scripts/galleryService.js'
+        ], 
       debug: true 
     }
   ).
