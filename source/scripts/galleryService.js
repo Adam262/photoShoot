@@ -1,24 +1,18 @@
-import { allPhotos, allThumbnails } from './photoService.js'
+import { allPhotos } from './photoService.js'
 
 let photoGallery;
 
 class Gallery {
-  constructor() {}
-
-  allPhotos(type = 'fullsize') { 
-    return type === 'thumbnail' ? allThumbnails : allPhotos;
+  allPhotos() { 
+    return allPhotos;
   }
 
-  homepagePhotos(type = 'fullsize') {
-    var photoStore = type === 'thumbnail' ? allThumbnails : allPhotos;
-
-    return this.photoStore.filter(photo => photo['homepage'] === true);
+  homepagePhotos() {
+    return allPhotos.filter(photo => photo['homepage'] === true);
   }
   
-  photosByCategory(category, type = 'fullsize') {
-    var photoStore = type === 'thumbnail' ? allThumbnails : allPhotos;
-
-    return this.photoStore.filter(photo => photo['category'] === category);
+  photosByCategory(category) {
+    return allPhotos.filter(photo => photo['category'] === category);
   }
 }
 

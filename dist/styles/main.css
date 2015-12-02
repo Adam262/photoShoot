@@ -1,4 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,500);
+@import url(http://fonts.googleapis.com/css?family=Francois+One:400,500);
 .logo-container {
   text-align: center;
   position: fixed;
@@ -78,6 +79,13 @@ li {
 .submenu > li:hover a {
   color: white;
   transition: color 1s ease;
+}
+
+.gallery-header {
+  font: 3em "Francois One", sans-serif;
+  color: white;
+  opacity: 0.50;
+  position: fixed;
 }
 
 a {

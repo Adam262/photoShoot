@@ -1,36 +1,40 @@
 'use strict';
 
-var allPhotos,
-    allThumbnails;
+const imageRegex = /(.jpg|.png|.gif|.tiff)/;
+
+var allPhotos;
 
 class Photo {
-  constructor (path, category, homepage = false) {
+  constructor (path, category, homepage = false, thumb) {
     this.path = path;
     this.category = category;
     this.homepage = homepage;
+    this.thumb = thumb || toThumbnail(path);
   }
 };
 
+function toThumbnail(path) {
+  var format = getFileExtension(path),
+      thumbPlusFormat = `-thumb${format}`;
+
+  return path.replace(imageRegex, thumbPlusFormat);
+}
+
+function getFileExtension(path) {
+  var index = path.search(imageRegex);
+  
+  return path.slice(index)
+}
+
 allPhotos = [
-  new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits', true),
-  new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots'),
-  new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'Kids', true),
-  new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'Portraits'),
-  new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'Kids'),
-  new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'Headshots', true),
-  new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'Portraits'),
-  new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'Headshots', true)
+  new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'portraits', true),
+  new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'headshots'),
+  new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'kids', true),
+  new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'portraits'),
+  new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'kids'),
+  new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'headshots', true),
+  new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'portraits'),
+  new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'headshots', true)
 ];
 
-allThumbnails = [
-  new Photo('./dist/images/nyh-site-coverpage-5-thumb.jpg', 'Portraits', true),
-  new Photo('./dist/images/nyh-site-coverpage-6-thumb.jpg', 'Headshots'),
-  new Photo('./dist/images/nyh-site-coverpage-7-thumb.jpg', 'Kids', true),
-  new Photo('./dist/images/nyh-site-coverpage-8-thumb.jpg', 'Portraits'),
-  new Photo('./dist/images/nyh-site-coverpage-9-thumb.jpg', 'Kids'),
-  new Photo('./dist/images/nyh-site-coverpage-12-thumb.jpg', 'Headshots', true),
-  new Photo('./dist/images/nyh-site-coverpage-5-thumb.jpg', 'Portraits'),
-  new Photo('./dist/images/nyh-site-coverpage-6-thumb.jpg', 'Headshots', true)
-];
-
-export { allPhotos, allThumbnails }; 
+export { allPhotos }; 
