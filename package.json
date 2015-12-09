@@ -11,7 +11,9 @@
   },
   "homepage": "https://github.com/Adam262/photoShoot#readme",
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "devDependencies": {
     "babel-core": "^6.2.1",
@@ -29,5 +31,8 @@
     "gulp-ruby-sass": "^2.0.5",
     "gulp-uglify": "^1.5.1",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "jquery-colorbox": "^1.6.3"
   }
 }

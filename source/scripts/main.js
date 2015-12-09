@@ -2,7 +2,7 @@
 
 import { photoGallery } from './galleryService.js';
 
-const galleries = ['portraits', 'headshots', 'kids'];
+const galleries = ['portraits', 'headshots', 'kids']; // move to config module?
 
 let photos = photoGallery.homepagePhotos(),
     $fullpageContainer = $('#fullpage'),
@@ -35,20 +35,17 @@ function registerEvents() {
       initJustifiedGallery(gallery); 
     });
   });
-
-
-
 }
 
 function imageTag(photo, type = 'fullsize') {
   var pathToPhoto = type === 'thumbnail' ? 'thumb' : 'path';
 
   return `<img src='${photo[pathToPhoto]}' data-homepage='${photo.homepage}'` +  
-    ` data-category='${photo.category}' class='slide'/>`;        
+    ` data-category='${photo.category}' class='slide ${type}'/>`;        
 }
 
 function imageAnchor(photo) {
-  return `<a href='${photo.path}' class='thumbnail'>${imageTag(photo, 'thumbnail')}</a>`
+  return `<a href='${photo.path}' class='image-anchor'>${imageTag(photo, 'thumbnail')}</a>`
 }
 
 function appendSlides(photos) {
@@ -62,14 +59,14 @@ function appendSlides(photos) {
 }
 
 function createGallery(type) {
-  var $existingThumbs = $('.thumbnail'),
+  var $existingAnchors = $('.image-anchor'),
       tag,
       photos;
 
   photos = photoGallery.photosByCategory(type);
 
   setGalleryHeader(type.toUpperCase());
-  $existingThumbs.remove();    
+  $existingAnchors.remove();    
 
   photos.forEach(photo => {
     tag = imageAnchor(photo);
@@ -101,7 +98,17 @@ function initFullpage() {
 function initJustifiedGallery(type = 'headshots') {
   createGallery(type);
 
-  $gallery.justifiedGallery();
+  $gallery.justifiedGallery({ margins: 25, rowHeight: 180 }).
+    on('jg.complete', function() {
+      $(this).find('a').colorbox({
+        maxWidth : '80%',
+        maxHeight : '80%',
+        opacity : 0.8,
+        transition : 'elastic',
+        scrolling : false,
+        current : ''
+      });
+    })
 }
 
 function initDropit() {

@@ -7,8 +7,7 @@
     "dropit": "~1.1.1",
     "fullpage.js": "~2.7.4",
     "normalize": "~1.0.4",
-    "Justified-Gallery": "~3.6.0",
-    "lightbox2": "~2.8.1"
+    "Justified-Gallery": "~3.6.0"
   },
   "devDependencies": {
     "chai": "~3.4.1",

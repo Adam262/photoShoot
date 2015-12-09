@@ -12,6 +12,15 @@
   width: 20em;
 }
 
+footer {
+  .logo {
+    font: 1em $raleway-stack; 
+    width: 10em;
+    position: fixed;
+    bottom: 1em;
+    left: 1em;
+  }
+}
 .logo-style {
   color: white;
   border: 1px solid white;

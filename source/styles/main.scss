@@ -71,3 +71,12 @@ img {
 .fp-controlArrow {
   display: none;
 }
+
+.gallery {
+  .image-anchor {
+    &:focus {
+      text-decoration: none;
+      outline: 0 none;
+    }
+  }
+}

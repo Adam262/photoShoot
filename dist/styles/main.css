@@ -14,6 +14,14 @@
   width: 20em;
 }
 
+footer .logo {
+  font: 1em "Raleway", Helvetica, sans-serif;
+  width: 10em;
+  position: fixed;
+  bottom: 1em;
+  left: 1em;
+}
+
 .logo-style {
   color: white;
   border: 1px solid white;
@@ -105,4 +113,9 @@ img {
 
 .fp-controlArrow {
   display: none;
+}
+
+.gallery .image-anchor:focus {
+  text-decoration: none;
+  outline: 0 none;
 }
