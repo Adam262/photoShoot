@@ -27,14 +27,14 @@ function getFileExtension(path) {
 }
 
 allPhotos = [
-  new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'portraits', true),
-  new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'headshots'),
-  new Photo('./dist/images/nyh-site-coverpage-7.jpg', 'kids', true),
-  new Photo('./dist/images/nyh-site-coverpage-8.jpg', 'portraits'),
-  new Photo('./dist/images/nyh-site-coverpage-9.jpg', 'kids'),
-  new Photo('./dist/images/nyh-site-coverpage-12.jpg', 'headshots', true),
-  new Photo('./dist/images/nyh-site-coverpage-5.jpg', 'portraits'),
-  new Photo('./dist/images/nyh-site-coverpage-6.jpg', 'headshots', true)
+  new Photo('./images/nyh-site-coverpage-5.jpg', 'portraits', true),
+  new Photo('./images/nyh-site-coverpage-6.jpg', 'headshots'),
+  new Photo('./images/nyh-site-coverpage-7.jpg', 'kids', true),
+  new Photo('./images/nyh-site-coverpage-8.jpg', 'portraits'),
+  new Photo('./images/nyh-site-coverpage-9.jpg', 'kids'),
+  new Photo('./images/nyh-site-coverpage-12.jpg', 'headshots', true),
+  new Photo('./images/nyh-site-coverpage-5.jpg', 'portraits'),
+  new Photo('./images/nyh-site-coverpage-6.jpg', 'headshots', true)
 ];
 
 export { allPhotos }; 

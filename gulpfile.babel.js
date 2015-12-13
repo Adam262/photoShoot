@@ -5,19 +5,24 @@ import source from 'vinyl-source-stream';
 import livereload from 'gulp-livereload';
 import rename from 'gulp-rename';
 import autoprefixer from 'gulp-autoprefixer';
-import uglify from 'gulp-uglify';
-import concat from 'gulp-concat';
 import sass from 'gulp-ruby-sass';
 import minifycss from 'gulp-minify-css';
+import minifyhtml from 'gulp-minify-html';
 import imagemin from 'gulp-imagemin';
 import cache from 'gulp-cache';
 import browserify from 'browserify';
 import babelify from 'babelify';
 
 gulp.task('default', () => {
-  var tasks = ['styles', 'images', 'scripts', 'watch'];
+  var tasks = ['html', 'styles', 'scripts', 'fonts', 'images', 'watch'];
 
   gulp.start(tasks);
+});
+
+gulp.task('html', () => {
+  return gulp.src('source/*.html').
+    pipe(minifyhtml()).
+    pipe(gulp.dest('dist'));
 });
 
 gulp.task('styles', () => {
@@ -48,6 +53,11 @@ gulp.task('scripts', () => {
   pipe(gulp.dest('dist/scripts/'));
 });
 
+gulp.task('fonts', () => {
+  return gulp.src('bower_components/Ionicons/fonts/*').
+    pipe(gulp.dest('dist/fonts/'));
+});
+
 gulp.task('images', () => {
   return gulp.src('source/images/*').
     pipe(cache(
@@ -63,6 +73,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('watch', () => {
+  gulp.watch('source/*.html', ['html']);
   gulp.watch('source/**/*.scss', ['styles']);
   gulp.watch('source/scripts/**/*.js', ['scripts']);
   gulp.watch('source/images/*', ['images']);

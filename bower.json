@@ -7,7 +7,8 @@
     "dropit": "~1.1.1",
     "fullpage.js": "~2.7.4",
     "normalize": "~1.0.4",
-    "Justified-Gallery": "~3.6.0"
+    "Justified-Gallery": "~3.6.0",
+    "Ionicons": "ionicons#~2.0.1"
   },
   "devDependencies": {
     "chai": "~3.4.1",

@@ -1,6 +1,9 @@
+@import '../../bower_components/Ionicons/scss/ionicons';
 @import '_variables';
 @import '_mixins';
+@import '_portfolio';
 @import '_logo';
+@import '_contact-form';
 @import '_responsive';
 
 body {
@@ -19,7 +22,7 @@ body {
   position: fixed;
   top: 1em;
   right: 5em;
-  width: 30%;
+  width: 28%;
   z-index: 100;
 }
 
@@ -45,21 +48,16 @@ li {
     }
   }
 }
-.gallery-header {
-  font: 3em $francois-stack;
-  color: white;
-  opacity: 0.50;
-  position: fixed;
-}
 
 a {
   color: white;
   text-decoration: none;
-  padding: 5%;
+  padding: 0;
 
   &:hover {
     font-weight: bold;
     @include transition(font-weight 1s ease);
+    cursor: pointer;
   }
 }
 
@@ -72,11 +70,6 @@ img {
   display: none;
 }
 
-.gallery {
-  .image-anchor {
-    &:focus {
-      text-decoration: none;
-      outline: 0 none;
-    }
-  }
+.portfolio, .about, .contact, footer {
+  display: none;
 }

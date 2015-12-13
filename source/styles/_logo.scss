@@ -7,20 +7,40 @@
   z-index: 100;
 }
 
-.logo {
+.logo-large {
   font: 3em $raleway-stack; 
   width: 20em;
 }
 
+.logo-small {
+  margin-left: 1em;
+  font: 1em $raleway-stack; 
+  width: 10em;
+}
+
+.about {
+  .logo {
+    font: 1.5em $raleway-stack; 
+    text-align: justify;
+    margin: 0 auto;
+    position: relative;
+    width: 30em;
+    top: 5em;
+
+    letter-spacing: 0.1em;    
+  }
+}
+
 footer {
   .logo {
-    font: 1em $raleway-stack; 
-    width: 10em;
+    @extend .logo-small;
+
     position: fixed;
     bottom: 1em;
     left: 1em;
   }
 }
+
 .logo-style {
   color: white;
   border: 1px solid white;

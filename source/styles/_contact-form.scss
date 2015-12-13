@@ -1,0 +1,61 @@
+.banner {
+  font: 1.5em $francois-stack; 
+  color: white;
+  margin: 0;
+  text-align: center;
+  padding: 3% 0 3% 0;
+}
+
+.contact-form {
+  border: 1px solid white;
+  width: 25em;
+  height: 22em;
+  position: relative;
+  top: 10em;
+  margin: 0 auto;
+  padding: 0 2%;
+
+  .form-field {
+    padding: 5% 0 0 0;
+  }
+
+  label {
+    font: 1em $raleway-stack;
+    color: white;
+  }
+
+  input {
+    width: 25em;
+    float: right;
+    border: 0.4em solid $light-grey;
+    border-radius: 1em;
+    outline: none;
+
+    &:hover {
+      border: 0.4em solid $steel-blue;
+      @include transition(border 1.0s ease);
+    }
+
+    &[type='submit'] {
+      width: 100%;
+      position: relative;
+      bottom: -3em;
+    }
+  }
+
+  textarea {
+    @extend input;
+  }
+}
+
+.social-media-container {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+}
+
+.contact-badge {
+  width: 25%;
+  padding: 0 20% 10% 20%;
+  font-size: 2em;
+}

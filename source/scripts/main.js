@@ -2,31 +2,41 @@
 
 import { photoGallery } from './galleryService.js';
 
-const galleries = ['portraits', 'headshots', 'kids']; // move to config module?
+const galleries = ['portraits', 'headshots', 'kids'];
+const pages = ['fullpage', 'portfolio', 'about', 'contact'];
 
 let photos = photoGallery.homepagePhotos(),
+    $document = $(document),
+    $pages = $('.page'),
     $fullpageContainer = $('#fullpage'),
     $section = $('#fullpage > .section'),
     $gallery = $('.gallery'),
     $galleryHeader = $('.gallery-header'),
-    $document = $(document),
     $menu = $('.menu'),
     $submenu = $('.submenu'),
-    $navbar = $('.navbar');
+    $navbar = $('.navbar'),
+    $footer = $('footer'),
+    $logoContainer = $('.fullpage .logo-container');
 
 function init() {
-  // init fullPage on index only
-  if ($section.length > 0) {
-    appendSlides(photos);
-    initFullpage();
-  }
+  appendSlides(photos);
+  initFullpage();
 
   registerEvents();
-  initJustifiedGallery();
+  initJustifiedGallery('headshots', false);
   initDropit();
 }
 
 function registerEvents() {
+  // show one page at a time when its link is clicked
+  pages.forEach(page => {
+    $document.on('click', `.${page}-link`, (event) => {
+      event.preventDefault();
+
+      togglePageVisibility(page);
+    });
+  });
+
   // repopulate gallery each time a link is clicked in Portfolio subheader
   galleries.forEach(gallery => {
     $submenu.on('click', `.${gallery}-link`, (event) => {
@@ -37,11 +47,27 @@ function registerEvents() {
   });
 }
 
+function togglePageVisibility(page) {
+   $pages.each(function() {
+      $(this).hide();
+      $(`.${page}`).show();
+
+      toggleFooter(page);
+    });
+}
+
+function toggleFooter(page) {
+  var isFullpage = (page === 'fullpage');
+  
+  $footer.toggle(!isFullpage);
+  $logoContainer.toggle(isFullpage);
+}
+
 function imageTag(photo, type = 'fullsize') {
   var pathToPhoto = type === 'thumbnail' ? 'thumb' : 'path';
 
   return `<img src='${photo[pathToPhoto]}' data-homepage='${photo.homepage}'` +  
-    ` data-category='${photo.category}' class='slide ${type}'/>`;        
+    ` data-category='${photo.category}' class='slide ${type}'>`;        
 }
 
 function imageAnchor(photo) {
@@ -95,7 +121,7 @@ function initFullpage() {
   });
 }
 
-function initJustifiedGallery(type = 'headshots') {
+function initJustifiedGallery(type = 'headshots', triggerPortfolio = true) {
   createGallery(type);
 
   $gallery.justifiedGallery({ margins: 25, rowHeight: 180 }).
@@ -108,7 +134,11 @@ function initJustifiedGallery(type = 'headshots') {
         scrolling : false,
         current : ''
       });
-    })
+    }
+  );
+  if (triggerPortfolio) {
+    $('.portfolio-link').trigger('click');
+  }
 }
 
 function initDropit() {
