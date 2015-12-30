@@ -7,16 +7,16 @@
 }
 
 .contact-form {
-  border: 1px solid white;
+  @include dark_grey_background;  
   width: 25em;
-  height: 22em;
+  height: 27em;
   position: relative;
   top: 10em;
   margin: 0 auto;
-  padding: 0 2%;
+  padding: 2% 2%;
 
   .form-field {
-    padding: 5% 0 0 0;
+    padding: 8% 0 0 0;
   }
 
   label {
@@ -25,11 +25,12 @@
   }
 
   input {
-    width: 25em;
+    width: 15em;
     float: right;
     border: 0.4em solid $light-grey;
     border-radius: 1em;
     outline: none;
+    font-size: 0.9em;
 
     &:hover {
       border: 0.4em solid $steel-blue;
@@ -51,11 +52,11 @@
 .social-media-container {
   position: absolute;
   display: flex;
-  bottom: 0;
+  bottom: 1em;
 }
 
 .contact-badge {
   width: 25%;
-  padding: 0 20% 10% 20%;
+  padding: 0 1em;
   font-size: 2em;
 }

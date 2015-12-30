@@ -10,8 +10,6 @@
   used under CC BY http://creativecommons.org/licenses/by/4.0/
   Modified icons to fit ionicon’s grid from original.
 */
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,500);
-@import url(http://fonts.googleapis.com/css?family=Francois+One:400,500);
 @font-face {
   font-family: "Ionicons";
   src: url("../fonts/ionicons.eot?v=2.0.0");
@@ -3715,12 +3713,39 @@
   outline: 0 none;
 }
 
+.about {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translate(0px, -50%);
+          transform: translate(0px, -50%);
+}
+.about .content {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  position: relative;
+  width: 50%;
+  padding: 2.5em;
+  margin: 0 auto;
+}
+.about .content p {
+  font-family: "Raleway", Helvetica, sans-serif;
+  font-size: 1em;
+  color: white;
+  text-align: justify;
+  letter-spacing: 0.1em;
+}
+.about .content .get-in-touch {
+  display: block;
+  clear: both;
+  margin-top: 1.5em;
+}
+
 .logo-container {
   text-align: center;
   position: fixed;
   width: 100vw;
   bottom: 10em;
-  left: 10em;
+  left: 15em;
   z-index: 100;
 }
 
@@ -3735,16 +3760,6 @@
   width: 10em;
 }
 
-.about .logo {
-  font: 1.5em "Raleway", Helvetica, sans-serif;
-  text-align: justify;
-  margin: 0 auto;
-  position: relative;
-  width: 30em;
-  top: 5em;
-  letter-spacing: 0.1em;
-}
-
 footer .logo {
   position: fixed;
   bottom: 1em;
@@ -3752,18 +3767,16 @@ footer .logo {
 }
 
 .logo-style {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   color: white;
-  border: 1px solid white;
   padding: 1%;
-  background-color: black;
-  opacity: 0.5;
 }
 .logo-style:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: black;
-  border: 1px solid black;
   padding: 1%;
-  background-color: white;
-  opacity: 0.5;
   transition: all 1.5s ease;
 }
 .logo-style:hover a {
@@ -3780,27 +3793,29 @@ footer .logo {
 }
 
 .contact-form {
-  border: 1px solid white;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   width: 25em;
-  height: 22em;
+  height: 27em;
   position: relative;
   top: 10em;
   margin: 0 auto;
-  padding: 0 2%;
+  padding: 2% 2%;
 }
 .contact-form .form-field {
-  padding: 5% 0 0 0;
+  padding: 8% 0 0 0;
 }
 .contact-form label {
   font: 1em "Raleway", Helvetica, sans-serif;
   color: white;
 }
 .contact-form input, .contact-form textarea {
-  width: 25em;
+  width: 15em;
   float: right;
-  border: 0.4em solid #c0c0c0;
+  border: 0.4em solid rgba(255, 255, 255, 0.5);
   border-radius: 1em;
   outline: none;
+  font-size: 0.9em;
 }
 .contact-form input:hover, .contact-form textarea:hover {
   border: 0.4em solid #3366CC;
@@ -3817,12 +3832,12 @@ footer .logo {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  bottom: 0;
+  bottom: 1em;
 }
 
 .contact-badge {
   width: 25%;
-  padding: 0 20% 10% 20%;
+  padding: 0 1em;
   font-size: 2em;
 }
 
@@ -3832,9 +3847,21 @@ footer .logo {
     padding: 1% 1.5%;
   }
 }
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   overflow: hidden;
+}
+
+p {
+  display: block;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
 }
 
 #container {
@@ -3896,3 +3923,5 @@ img {
 .portfolio, .about, .contact, footer {
   display: none;
 }
+
+/*# sourceMappingURL=../maps/styles/main.css.map */

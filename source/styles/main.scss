@@ -2,13 +2,26 @@
 @import '_variables';
 @import '_mixins';
 @import '_portfolio';
+@import '_about';
 @import '_logo';
 @import '_contact-form';
 @import '_responsive';
 
+// Globals
+
+// Set Box Sizing
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   overflow: hidden;
+}
+
+p {
+    display: block;
+    @include reset_webkit_margin
 }
 
 #container {

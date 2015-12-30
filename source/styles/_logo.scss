@@ -3,7 +3,7 @@
   position: fixed;
   width: 100vw;
   bottom: 10em;
-  left: 10em;
+  left: 15em;
   z-index: 100;
 }
 
@@ -18,19 +18,6 @@
   width: 10em;
 }
 
-.about {
-  .logo {
-    font: 1.5em $raleway-stack; 
-    text-align: justify;
-    margin: 0 auto;
-    position: relative;
-    width: 30em;
-    top: 5em;
-
-    letter-spacing: 0.1em;    
-  }
-}
-
 footer {
   .logo {
     @extend .logo-small;
@@ -42,18 +29,14 @@ footer {
 }
 
 .logo-style {
+  @include dark_grey_background;
   color: white;
-  border: 1px solid white;
   padding: 1%;
-  background-color: black;
-  opacity: 0.5;
 
   &:hover {
+    @include light_grey_background;
     color: black;
-    border: 1px solid black;
     padding: 1%;
-    background-color: white;
-    opacity: 0.5;
     @include transition(all 1.5s ease);
 
     a {

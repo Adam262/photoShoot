@@ -6,3 +6,20 @@
   -o-transition: $options;
   transition: $options;
 }
+
+@mixin reset_webkit_margin {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+}
+
+@mixin dark_grey_background {
+  background-color: $dark-grey;
+  border: 1px solid $light-grey;
+}
+
+@mixin light_grey_background {
+  background-color: $light-grey;
+  border: 1px solid $dark-grey;
+}

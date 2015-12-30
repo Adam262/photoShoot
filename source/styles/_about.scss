@@ -1,0 +1,30 @@
+// About Section Styles
+
+.about {
+  position: relative;
+  top: 50%;
+  transform: translate(0px, -50%);
+
+  .content {
+    @include dark_grey_background;
+    position: relative;
+    width: 50%;
+    padding: 2.5em;
+    margin: 0 auto;
+
+    p {
+      font-family: $raleway-stack;
+      font-size: 1em;
+      color: white; 
+      text-align: justify;
+      letter-spacing: 0.1em;
+    }
+
+    // More info Button
+    .get-in-touch {
+      display: block;
+      clear: both;
+      margin-top: 1.5em;
+    }   
+  }
+}

@@ -15,10 +15,14 @@ _Challenges_
 * Dynamic event handlers for galleries
 * Dynamic thumbnail path
 * Form without database - https://github.com/asm-products/formspree
+* Add linting:
+    - `gulp-eslint`
+    - `eslint-config-airbnb`
+    - `eslint-plugin-react`
 
 _Todo_
+* Add live webserver via [gulp-connect](http://code.tutsplus.com/tutorials/gulp-as-a-development-web-server--cms-20903)
 * Continue to learn ES6
-* Add linting
 * Add tests
 * Make responsive
 

@@ -157,7 +157,7 @@ function beforeDropitShow() {
 
 function afterDropitHide() {
   $navbar.css({
-    height: '3%'
+    height: '7%'
   });
 }
 

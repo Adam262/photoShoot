@@ -1,6 +1,8 @@
 'use strict';
 
 import gulp from 'gulp';
+import sourcemaps from 'gulp-sourcemaps';
+import eslint from 'gulp-eslint';
 import source from 'vinyl-source-stream';
 import livereload from 'gulp-livereload';
 import rename from 'gulp-rename';
@@ -14,9 +16,22 @@ import browserify from 'browserify';
 import babelify from 'babelify';
 
 gulp.task('default', () => {
-  var tasks = ['html', 'styles', 'scripts', 'fonts', 'images', 'watch'];
+  var tasks = ['lint', 'html', 'styles', 'scripts', 'fonts', 'images', 'watch'];
 
   gulp.start(tasks);
+});
+
+gulp.task('lint', () => {
+    return gulp.src([
+        'source/scripts/**/*.js',
+        '!node_modules/**',
+        '!bower_components/**'
+      ]).
+        pipe(eslint({
+          useEslintrc: true
+        })).
+        pipe(eslint.format()).
+        pipe(eslint.failAfterError());
 });
 
 gulp.task('html', () => {
@@ -28,7 +43,11 @@ gulp.task('html', () => {
 gulp.task('styles', () => {
   return sass('source/**/main.scss', { style: 'expanded' }).
     on('error', sass.logError).
+    pipe(sourcemaps.init({
+      loadMaps: true
+    })).
     pipe(autoprefixer('last 2 version')).
+    pipe(sourcemaps.write('maps')).
     pipe(gulp.dest('dist')).
     pipe(rename({suffix: '.min'})).
     pipe(minifycss()).
@@ -73,6 +92,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('watch', () => {
+  gulp.watch('source/scripts/**/*.js', ['lint']);
   gulp.watch('source/*.html', ['html']);
   gulp.watch('source/**/*.scss', ['styles']);
   gulp.watch('source/scripts/**/*.js', ['scripts']);
